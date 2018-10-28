@@ -2,7 +2,10 @@ package ilya.restclient.client.adapter;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -30,6 +33,11 @@ public class UsersAdapter extends CustomArrayAdapter<User> {
         ((TextView) view.findViewById(R.id.item_name_field)).setText(item.getName());
         ((TextView) view.findViewById(R.id.item_email_field)).setText(item.getEmail());
         ((TextView) view.findViewById(R.id.item_num_field)).setText(item.getPhone());
+
+        Glide
+                .with(view)
+                .load(item.getLinks().getAvatar().getHref())
+                .into((ImageView) view.findViewById(R.id.item_img));
 
         return view;
     }

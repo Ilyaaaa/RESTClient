@@ -6,8 +6,11 @@ import ilya.restclient.client.data.ResponseObj;
 import ilya.restclient.client.data.User;
 import io.reactivex.Observable;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -25,5 +28,13 @@ public interface Api {
     @Headers(accessStr)
     @POST("users")
     Observable<ResponseObj<User>> addUser(@Body User user);
+
+    @Headers(accessStr)
+    @PATCH("users")
+    Observable<ResponseObj<User>> updateUser(@Path("id") long id, @Body User user);
+
+    @Headers(accessStr)
+    @DELETE("users")
+    Observable<ResponseObj<User>> deleteUser(@Path("id") long id, @Body User user);
 
 }

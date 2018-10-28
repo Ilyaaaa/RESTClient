@@ -17,15 +17,9 @@ public class User {
     @SerializedName("_links")
     private Links links;
 
-    public User(String name, String gender, Date dob, String email, String phone, String website, String address, String status, Links links) {
+    public User(String name, String gender, Links links) {
         this.name = name;
         this.gender = gender;
-        this.dob = dob;
-        this.email = email;
-        this.phone = phone;
-        this.website = website;
-        this.address = address;
-        this.status = status;
         this.links = links;
     }
 
@@ -97,7 +91,7 @@ public class User {
         return status;
     }
 
-    public Links get_links() {
+    public Links getLinks() {
         return links;
     }
 }
