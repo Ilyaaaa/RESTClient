@@ -22,7 +22,7 @@ public class MainPresenterImpl implements MainPresenter {
         compositeDisposable.add(
                 api.getUser(id)
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(user -> view.showUser(user), Throwable::printStackTrace
+                        .subscribe(user -> view.showUser(user.getResult()), Throwable::printStackTrace
                         )
         );
     }
