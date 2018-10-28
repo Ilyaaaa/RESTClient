@@ -2,4 +2,22 @@
     <string name="app_name">RESTClient</string>
 
     <string name="users">Users</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone number</string>
+    <string name="website">Website</string>
+    <string name="address">Address</string>
+    <string name="avatar_link">Avatar link</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+
+    <string-array name="genders_array">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+
+    <string-array name="user_list_menu">
+        <item>Remove</item>
+    </string-array>
 </resources>

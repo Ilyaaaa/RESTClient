@@ -26,7 +26,7 @@ public class Client {
                 .build();
 
         Gson gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                .setDateFormat("yyyy-MM-dd")
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()

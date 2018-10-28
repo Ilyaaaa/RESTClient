@@ -1,12 +1,11 @@
-package ilya.restclient;
+package ilya.restclient.interfaces;
 
 import java.util.ArrayList;
 
 import ilya.restclient.client.data.User;
 
-public interface MainView {
-    void showUser(User user);
+public interface MainView extends DialogVIew {
     void updateUserList(ArrayList<User> users);
-    void removeUser(User user);
+    void removeUser(long id);
     void showError(int code, String msg);
 }

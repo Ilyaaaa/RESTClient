@@ -2,6 +2,7 @@ package ilya.restclient.client;
 
 import java.util.ArrayList;
 
+import ilya.restclient.client.data.NewUser;
 import ilya.restclient.client.data.ResponseObj;
 import ilya.restclient.client.data.User;
 import io.reactivex.Observable;
@@ -27,14 +28,14 @@ public interface Api {
 
     @Headers(accessStr)
     @POST("users")
-    Observable<ResponseObj<User>> addUser(@Body User user);
+    Observable<ResponseObj<User>> addUser(@Body NewUser user);
 
     @Headers(accessStr)
-    @PATCH("users")
-    Observable<ResponseObj<User>> updateUser(@Path("id") long id, @Body User user);
+    @PATCH("users/{id}")
+    Observable<ResponseObj<User>> updateUser(@Path("id") long id, @Body NewUser user);
 
     @Headers(accessStr)
-    @DELETE("users")
-    Observable<ResponseObj<User>> deleteUser(@Path("id") long id, @Body User user);
+    @DELETE("users/{id}")
+    Observable<ResponseObj<User>> deleteUser(@Path("id") long id);
 
 }

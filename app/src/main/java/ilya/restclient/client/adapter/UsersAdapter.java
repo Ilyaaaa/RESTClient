@@ -26,6 +26,13 @@ public class UsersAdapter extends CustomArrayAdapter<User> {
         return users.get(position).getId();
     }
 
+    public User getItemById(long id) {
+        for (User user: users)
+            if (id == user.getId()) return user;
+
+        return null;
+    }
+
     @Override
     View createView(int position, View view) {
         User item = users.get(position);
