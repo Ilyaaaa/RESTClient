@@ -16,7 +16,7 @@ public interface Api {
 
     @Headers(accessStr)
     @GET("users")
-    Observable<ArrayList<ResponseObj<User>>> getUsers();
+    Observable<ResponseObj<ArrayList<User>>> getUsers();
 
     @Headers(accessStr)
     @GET("users/{id}")

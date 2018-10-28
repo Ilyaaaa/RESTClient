@@ -1,7 +1,10 @@
 package ilya.restclient;
 
+import android.util.Log;
+
 import ilya.restclient.client.Api;
 import ilya.restclient.client.Client;
+import ilya.restclient.client.data.Meta;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -22,9 +25,33 @@ public class MainPresenterImpl implements MainPresenter {
         compositeDisposable.add(
                 api.getUser(id)
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(user -> view.showUser(user.getResult()), Throwable::printStackTrace
+                        .subscribe(user -> {
+                            if (user.getMeta().isSuccess())
+                                view.showUser(user.getResult());
+                            else showError(user.getMeta());
+                            }, Throwable::printStackTrace
                         )
         );
+    }
+
+    @Override
+    public void getUsers() {
+        compositeDisposable.add(
+                api.getUsers()
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(users -> {
+                            if (users.getMeta().isSuccess())
+                                view.updateUserList(users.getResult());
+                            else showError(users.getMeta());
+                            }, Throwable::printStackTrace
+                        )
+        );
+    }
+
+    private void showError(Meta meta) {
+        if (meta.isSuccess()) return;
+
+        view.showError(meta.getCode(), meta.getMessage());
     }
 
     @Override

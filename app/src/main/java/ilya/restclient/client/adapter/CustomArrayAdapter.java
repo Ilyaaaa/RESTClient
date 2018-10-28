@@ -1,4 +1,4 @@
-package ilya.restclient;
+package ilya.restclient.client.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -64,7 +64,7 @@ abstract class CustomArrayAdapter<T> extends ArrayAdapter<T> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView,@NonNull ViewGroup parent) {
         View view = convertView;
 
         if (view == null) view = inflater.inflate(layoutResId, parent, false);
